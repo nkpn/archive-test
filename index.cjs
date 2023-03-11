@@ -6,10 +6,11 @@ const getPokemonData = async () => {
   try{
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    page.setViewport({ width: 1024, height: 768 });
-
+   
     // Trying to make request as fast as possible
-    
+      // set smaller viewport
+      page.setViewport({ width: 1024, height: 768 });
+      
       // Disable images to reduce content amount
       await page.setRequestInterception(true);
       page.on('request', request => {
